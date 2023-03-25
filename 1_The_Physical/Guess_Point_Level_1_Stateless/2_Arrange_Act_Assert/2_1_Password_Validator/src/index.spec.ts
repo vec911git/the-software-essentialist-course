@@ -13,5 +13,10 @@ describe('password validator', () => {
         expect(isPasswordValid('1234512345123451')).toBeFalsy();
     })
 
+    it('Contains at least one digit', () => {
+        expect(isPasswordValid('abcd1')).toBeTruthy();
+        expect(isPasswordValid('abcde')).toBeFalsy();
+    })
+
 })
 
