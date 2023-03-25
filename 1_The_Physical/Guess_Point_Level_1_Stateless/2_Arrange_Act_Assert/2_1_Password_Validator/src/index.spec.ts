@@ -8,14 +8,19 @@ describe('password validator', () => {
 
     it('Must be between 5 and 15 characters long', () => {
         expect(isPasswordValid('1')).toBeFalsy();
-        expect(isPasswordValid('12345')).toBeTruthy();
-        expect(isPasswordValid('123451234512345')).toBeTruthy();
+        expect(isPasswordValid('A2345')).toBeTruthy();
+        expect(isPasswordValid('A23451234512345')).toBeTruthy();
         expect(isPasswordValid('1234512345123451')).toBeFalsy();
     })
 
     it('Contains at least one digit', () => {
-        expect(isPasswordValid('abcd1')).toBeTruthy();
+        expect(isPasswordValid('Abcd1')).toBeTruthy();
         expect(isPasswordValid('abcde')).toBeFalsy();
+    })
+
+    it('Contains at least one upper case letter', () => {
+        expect(isPasswordValid('Abcd1')).toBeTruthy();
+        expect(isPasswordValid('abcd1')).toBeFalsy();
     })
 
 })
