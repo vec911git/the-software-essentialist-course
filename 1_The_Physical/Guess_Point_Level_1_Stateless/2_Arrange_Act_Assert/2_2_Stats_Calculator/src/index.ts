@@ -5,14 +5,17 @@ export function statsCalculator(numberSequence: number[]): StatHolder {
     let stats = new StatHolder();
     let minValue:any = null;
     let maxValue:any = null;
+    let sumValue:number = 0;
+    let numberOfElements:number = numberSequence.length;
     for (const element of numberSequence) {
         if (minValue === null || minValue > element) minValue = element;
         if (maxValue === null || maxValue < element) maxValue = element;
+        sumValue += element;
     }
     stats.minValue = minValue;
     stats.maxValue = maxValue;
-    stats.numberOfElements = numberSequence.length;
-
+    stats.numberOfElements = numberOfElements;
+    stats.avgValue = sumValue / numberOfElements;
     return stats;
 }
 

@@ -24,4 +24,7 @@ describe('stats calculator', () => {
         expect(statsCalculator([2, 4, 21, -8, 53, 40]).numberOfElements).toEqual(6);
     })
 
+    it('It calculates average value', () => {
+        expect(statsCalculator([2, 4, 21, -8, 53, 40]).avgValue).toEqual(18.666666666666668);
+    })
 })
