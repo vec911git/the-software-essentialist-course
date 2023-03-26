@@ -20,4 +20,8 @@ describe('stats calculator', () => {
         expect(statsCalculator([2, 4, 21, -8, 53, 40]).maxValue).toEqual(53);
     })
 
+    it('It calculates number of elements in the sequence', () => {
+        expect(statsCalculator([2, 4, 21, -8, 53, 40]).numberOfElements).toEqual(6);
+    })
+
 })

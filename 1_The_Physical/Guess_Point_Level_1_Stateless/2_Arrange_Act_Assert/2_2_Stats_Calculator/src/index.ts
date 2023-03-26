@@ -11,7 +11,8 @@ export function statsCalculator(numberSequence: number[]): StatHolder {
     }
     stats.minValue = minValue;
     stats.maxValue = maxValue;
-    
+    stats.numberOfElements = numberSequence.length;
+
     return stats;
 }
 
