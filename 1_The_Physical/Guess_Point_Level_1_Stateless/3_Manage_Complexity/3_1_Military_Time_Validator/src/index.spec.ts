@@ -7,6 +7,34 @@ describe('military time validator', () => {
         expect(typeof(isMilitaryTimeValid)).toBe("function");
     })
 
+    it('"" is not a valid military time range', () => {
+        expect(isMilitaryTimeValid('')).toBeFalsy();
+    })
+
+    it('"01:12" is not a valid military time range', () => {
+        expect(isMilitaryTimeValid('01:12')).toBeFalsy();
+    })
+
+    it('"01:12 - " is not a valid military time range', () => {
+        expect(isMilitaryTimeValid('01:12 - ')).toBeFalsy();
+    })
+
+    it('"14:32" is not a valid military time range', () => {
+        expect(isMilitaryTimeValid('14:32')).toBeFalsy();
+    })
+
+    it('" - 14:32" is not a valid military time range', () => {
+        expect(isMilitaryTimeValid(' - 14:32')).toBeFalsy();
+    })
+
+    it('"01:12 - 14:32 - 14:32" is not a valid military time range', () => {
+        expect(isMilitaryTimeValid('01:12 - 14:32 - 14:32')).toBeFalsy();
+    })
+
+    it('"aa:bb - cc:dd" is not a valid military time range', () => {
+        expect(isMilitaryTimeValid('aa:bb - cc:dd')).toBeFalsy();
+    })
+
     it('"01:12 - 14:32" is a valid military time range', () => {
         expect(isMilitaryTimeValid('01:12 - 14:32')).toBeTruthy();
     })
@@ -18,4 +46,5 @@ describe('military time validator', () => {
     it('"22:00 - 23:12" is a valid military time range', () => {
         expect(isMilitaryTimeValid('22:00 - 23:12')).toBeFalsy();
     })
+    
 })
