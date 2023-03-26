@@ -7,4 +7,8 @@ describe('military time validator', () => {
         expect(typeof(isMilitaryTimeValid)).toBe("function");
     })
 
+    it('"01:12 - 14:32" is a valid military time range', () => {
+        expect(isMilitaryTimeValid('01:12 - 14:32')).toBeTruthy();
+    })
+
 })
