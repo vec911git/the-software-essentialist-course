@@ -16,4 +16,8 @@ describe('stats calculator', () => {
         expect(statsCalculator([2, 4, 21, -8, 53, 40]).minValue).toEqual(-8);
     })
 
+    it('It calculates maximum value', () => {
+        expect(statsCalculator([2, 4, 21, -8, 53, 40]).maxValue).toEqual(53);
+    })
+
 })

@@ -4,11 +4,14 @@ export function statsCalculator(numberSequence: number[]): StatHolder {
 
     let stats = new StatHolder();
     let minValue:any = null;
+    let maxValue:any = null;
     for (const element of numberSequence) {
         if (minValue === null || minValue > element) minValue = element;
+        if (maxValue === null || maxValue < element) maxValue = element;
     }
     stats.minValue = minValue;
-
+    stats.maxValue = maxValue;
+    
     return stats;
 }
 
