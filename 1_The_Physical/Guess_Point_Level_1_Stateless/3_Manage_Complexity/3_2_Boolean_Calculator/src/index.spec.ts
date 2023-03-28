@@ -10,9 +10,14 @@ describe('boolean calculator', () => {
     })
 
     it('takes a boolean expression', () => {
-        expect(() => booleanCalculator.addBooleanExpression('')).toThrow('Boolean expression is empty');
-        expect(() => booleanCalculator.addBooleanExpression('RUE')).toThrow('Boolean expression contains invalid values');
-        expect(() => booleanCalculator.addBooleanExpression('MOT TRUE')).toThrow('Boolean expression contains invalid values');
-        expect(() => booleanCalculator.addBooleanExpression('TRUE')).not.toThrow('Boolean expression contains invalid values');
+        expect(() => booleanCalculator.evaluate('')).toThrow('Boolean expression is empty');
+        expect(() => booleanCalculator.evaluate('RUE')).toThrow('Boolean expression contains invalid values');
+        expect(() => booleanCalculator.evaluate('MOT TRUE')).toThrow('Boolean expression contains invalid values');
+        expect(() => booleanCalculator.evaluate('TRUE')).not.toThrow('Boolean expression contains invalid values');
+    })
+
+    it('evaluates single operators', () => {
+        expect(booleanCalculator.evaluate("TRUE")).toBeTruthy();
+        expect(booleanCalculator.evaluate("FALSE")).toBeFalsy();
     })
 })
