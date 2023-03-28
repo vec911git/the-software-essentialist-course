@@ -16,13 +16,39 @@ describe('boolean calculator', () => {
         expect(() => booleanCalculator.evaluate('TRUE')).not.toThrow('Boolean expression contains invalid values');
     })
 
-    it('evaluates single operators', () => {
-        expect(booleanCalculator.evaluate("TRUE")).toBeTruthy();
-        expect(booleanCalculator.evaluate("FALSE")).toBeFalsy();
+    describe('Single values', () => {
+        it('returns true for "TRUE"', () => {
+            expect(booleanCalculator.evaluate("TRUE")).toBeTruthy();
+        })
+        it('returns false for "FALSE"', () => {
+            expect(booleanCalculator.evaluate("FALSE")).toBeFalsy();
+        })
     })
 
-    it('evaluates not operator', () => {
-        expect(booleanCalculator.evaluate("NOT TRUE")).toBeFalsy();
-        expect(booleanCalculator.evaluate("NOT FALSE")).toBeTruthy();
+    describe('NOT operator', () => {
+        it('returns false for "NOT TRUE"', () => {
+            expect(booleanCalculator.evaluate("NOT TRUE")).toBeFalsy();
+        })
+        it('returns true for "NOT FALSE"', () => {
+            expect(booleanCalculator.evaluate("NOT FALSE")).toBeTruthy();
+        })
+    })
+
+    describe('AND operator', () => {
+        it('returns false for "TRUE AND FALSE"', () => {
+            expect(booleanCalculator.evaluate("TRUE AND FALSE")).toBeFalsy();
+        })
+        it('returns true for "TRUE AND TRUE"', () => {
+            expect(booleanCalculator.evaluate("TRUE AND TRUE")).toBeTruthy();
+        })
+    })
+
+    describe('OR operator', () => {
+        it('returns true for "TRUE OR FALSE"', () => {
+            expect(booleanCalculator.evaluate("TRUE OR FALSE")).toBeTruthy();
+        })
+        it('returns false for "FALSE OR FALSE"', () => {
+            expect(booleanCalculator.evaluate("FALSE OR FALSE")).toBeFalsy();
+        })
     })
 })
