@@ -20,4 +20,9 @@ describe('boolean calculator', () => {
         expect(booleanCalculator.evaluate("TRUE")).toBeTruthy();
         expect(booleanCalculator.evaluate("FALSE")).toBeFalsy();
     })
+
+    it('evaluates not operator', () => {
+        expect(booleanCalculator.evaluate("NOT TRUE")).toBeFalsy();
+        expect(booleanCalculator.evaluate("NOT FALSE")).toBeTruthy();
+    })
 })
