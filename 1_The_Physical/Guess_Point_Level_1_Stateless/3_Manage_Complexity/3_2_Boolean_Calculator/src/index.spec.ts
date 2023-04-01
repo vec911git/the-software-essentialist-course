@@ -60,4 +60,13 @@ describe('boolean calculator', () => {
             expect(booleanCalculator.evaluate("TRUE OR FALSE AND NOT FALSE")).toBeTruthy();
         })
     })
+
+    describe('Parenthesis', () => {
+        it('returns false for "(TRUE OR TRUE OR TRUE) AND FALSE"', () => {
+            expect(booleanCalculator.evaluate("(TRUE OR TRUE OR TRUE) AND FALSE")).toBeFalsy();
+        })
+        it('returns false for "TRUE OR FALSE AND NOT FALSE"', () => {
+            expect(booleanCalculator.evaluate("NOT (TRUE AND TRUE)")).toBeFalsy();
+        })
+    })
 })
