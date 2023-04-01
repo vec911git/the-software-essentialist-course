@@ -22,8 +22,8 @@ export class BooleanCalculator {
     public evaluate(booleanExpression: string): boolean {
         this.checkBooleanExpression(booleanExpression);
 
-        if (booleanExpression.includes('(')) 
-			return this.evaluate(this.processParenthesisExpression(booleanExpression));
+        if (booleanExpression.includes('('))
+            return this.evaluate(this.processParenthesisExpression(booleanExpression));
 
         if (booleanExpression.includes(' OR ')) 
             return booleanExpression.split(' OR ').some(exp => this.evaluate(exp));
