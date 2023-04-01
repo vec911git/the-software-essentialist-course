@@ -13,14 +13,14 @@ export class BooleanCalculator {
 
     public evaluate(booleanExpression: string): boolean {
         this.checkBooleanExpression(booleanExpression);
-        
+
+        if (booleanExpression.includes(' OR ')) 
+            return booleanExpression.split(' OR ').some(exp => this.evaluate(exp));
+
+        if (booleanExpression.includes(' AND '))
+            return booleanExpression.split(' AND ').every(exp => this.evaluate(exp));
+
         if (booleanExpression === 'NOT FALSE')
-            return true;
-
-        if (booleanExpression === 'TRUE AND TRUE')
-            return true;
-
-        if (booleanExpression === 'TRUE OR FALSE')
             return true;
         
         return booleanExpression === 'TRUE';

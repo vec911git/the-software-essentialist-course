@@ -51,4 +51,13 @@ describe('boolean calculator', () => {
             expect(booleanCalculator.evaluate("FALSE OR FALSE")).toBeFalsy();
         })
     })
+
+    describe('Combination of operators w/ precedence', () => {
+        it('returns true for "TRUE OR TRUE OR TRUE AND FALSE"', () => {
+            expect(booleanCalculator.evaluate("TRUE OR TRUE OR TRUE AND FALSE")).toBeTruthy();
+        })
+        it('returns true for "TRUE OR FALSE AND NOT FALSE"', () => {
+            expect(booleanCalculator.evaluate("TRUE OR FALSE AND NOT FALSE")).toBeTruthy();
+        })
+    })
 })
